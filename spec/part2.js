@@ -1,3 +1,10 @@
+if(typeof window === 'undefined') {
+  global._ = require('../src/underbar');
+  var sinon = require('sinon');
+  var expect = require('../lib/chai').expect;
+  clock = sinon.useFakeTimers();
+}
+
 (function() {
   'use strict';
 
@@ -413,7 +420,7 @@
         memoSpy(10);
         expect(spy).to.have.been.calledOnce;
       });
-      
+
       it('should not run the memoized function twice when given a reference type as an argument', function() {
         // Be careful how you are checking if a set of arguments has been passed in already
         var spy = sinon.spy(function() { return 'Dummy output'; });

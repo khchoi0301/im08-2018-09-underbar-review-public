@@ -1,0 +1,26 @@
+{
+  "name": "im08-2018-09-underbar-review",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates/im08-2018-09-underbar-review.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates/im08-2018-09-underbar-review/issues"
+  },
+  "homepage": "https://github.com/codestates/im08-2018-09-underbar-review#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "sinon": "^6.2.0"
+  }
+}

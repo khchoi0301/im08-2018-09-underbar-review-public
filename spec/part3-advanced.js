@@ -1,3 +1,9 @@
+if(typeof window === 'undefined') {
+  require('../src/underbar');
+  var sinon = require('sinon');
+  var expect = require('../lib/chai').expect;
+}
+
 (function() {
   'use strict';
 

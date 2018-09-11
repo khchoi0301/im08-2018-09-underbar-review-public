@@ -1,3 +1,8 @@
+if(typeof window === 'undefined') {
+  global._ = require('../src/underbar');
+  var expect = require('../lib/chai').expect;
+}
+
 (function() {
   'use strict';
 

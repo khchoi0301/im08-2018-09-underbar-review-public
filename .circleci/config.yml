@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Submit Result
           command: echo -e "$(npm run submit-test)\n\n  $CIRCLE_PR_USERNAME  \n  $CIRCLE_REPOSITORY_URL\n"
-          name: always
+          when: always
 
 
 

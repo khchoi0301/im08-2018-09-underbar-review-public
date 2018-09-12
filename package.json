@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "mocha --recursive spec/"
+    "test": "mocha --recursive spec/",
+    "submit-test": "mocha --recursive spec/ | grep -E \"[0-9]+\\s(passing|failing)\""
   },
   "repository": {
     "type": "git",

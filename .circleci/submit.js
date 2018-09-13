@@ -8,7 +8,7 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
   }
 
   exec('echo "$aws_lambda_apikey"', (err, apikey) => {
-    exec('echo "\n\n$CIRCLE_PR_USERNAME\n$CIRCLE_REPOSITORY_URL\n"', async (err, stdout2) => {
+    exec('echo "\n\n$CIRCLE_PR_USERNAME\n$CIRCLE_REPOSITORY_URL\n"', (err, stdout2) => {
       console.log(`${stdout1}${stdout2}`);
       
       const options = {

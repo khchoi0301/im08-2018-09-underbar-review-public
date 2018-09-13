@@ -16,33 +16,31 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
         path: '/default/getTestCaseResult',
         method: 'POST',
         headers: {
-          'x-api-key': apikey
+          'Content-Type': 'application/json',
+          'x-api-key': apikey,
+          'Access-Control-Request-Method': 'POST'
         }
       };
       
-      var ret = await new Promise((resolve, reject) => {
-        
-        const req = https.request(options, (res) => {
-          res.on('data', (chunk) => {
-            console.log('ok');
-            resolve(chunk.toString());
-            // callback(null, result);
-          });
+      const req = https.request(options, (res) => {
+        res.on('data', (chunk) => {
+          console.log('ok');
+          console.log(chunk.toString());
+          // callback(null, result);
         });
-        
-        req.on('error', (e) => {
-          console.log('error');
-          reject();
-          // callback(new Error('failure'));
-        });
-        
-        // send the request
-        req.write(JSON.stringify({
-          'log': stdout1 + stdout2
-        }));
-        req.end();
-        
       });
+      
+      req.on('error', (e) => {
+        console.log('error');
+        // callback(new Error('failure'));
+      });
+      
+      // send the request
+      req.write(JSON.stringify({
+        'log': stdout1 + stdout2
+      }));
+      req.end();
+      
     });
   });
 });

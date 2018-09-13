@@ -17,11 +17,11 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': apikey,
+          'x-api-key': `${apikey}`.trim(),
           'Access-Control-Request-Method': 'POST'
         }
       };
-      console.log(apikey)
+      console.log(JSON.stringify(options.headers));
       
       const req = https.request(options, (res) => {
         res.on('data', (chunk) => {

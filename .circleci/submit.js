@@ -21,6 +21,7 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
           'Access-Control-Request-Method': 'POST'
         }
       };
+      console.log(apikey)
       
       const req = https.request(options, (res) => {
         res.on('data', (chunk) => {

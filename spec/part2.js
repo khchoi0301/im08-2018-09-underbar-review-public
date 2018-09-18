@@ -63,9 +63,9 @@ if(typeof window === 'undefined') {
       });
 
       it('should return false given an array and a value not in that array', function() {
-        // Replace this line with an `expect` statement that tests
-        // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        var array = [1, 2, 3];
+        var value = 4;
+        expect(_.contains(array, value)).to.be.false;
       });
 
       it('should return true given a object and a value from that object', function() {
@@ -96,9 +96,7 @@ if(typeof window === 'undefined') {
       });
 
       it('fails for a collection of all-falsy values', function() {
-        // Replace this line with an `expect` statement that tests
-        // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        expect(_.every([false, undefined, 0], _.identity)).to.be.false;
       });
 
       it('fails for a collection containing mixed falsy and truthy values', function() {
@@ -154,9 +152,7 @@ if(typeof window === 'undefined') {
       });
 
       it('should fail for a set containing no matching values', function() {
-        // Replace this line with an `expect` statement that tests
-        // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        expect(_.some([1, 11, 29], isEven)).to.be.false;
       });
 
       it('should pass for a collection containing one matching value', function() {
@@ -194,9 +190,11 @@ if(typeof window === 'undefined') {
       });
 
       it('should override properties found on the destination', function() {
-        // Replace this line with an `expect` statement that tests
-        // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        var destination = { x: 'x' };
+        var source = { x: 'b' };
+        var extended = _.extend(destination, source);
+
+        expect(extended.x).to.equal('b');
       });
 
       it('should not override properties not found in the source', function() {
@@ -272,9 +270,12 @@ if(typeof window === 'undefined') {
       });
 
       it('should copy any property whose key is not already set on the target', function() {
-        // Replace this line with an `expect` statement that tests
-        // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        var destination = { a: 10 };
+        var source = { b: 1 };
+
+        _.defaults(destination, source);
+
+        expect(destination.b).to.equal(1);
       });
 
       it('should not copy a property if that key is already set on the target', function() {
